@@ -9,3 +9,4 @@ hadoop、mapreduce的一些练习
 - 包org.dan.mr.order_pro_mapjoin	MapReduce实现订单信息和产品信息的join逻辑，在Mapper端实现，避免数据倾斜
 - 包org.dan.mr.wordindex	MapReduce单词索引
 - 包org.dan.mr.shared_friends	MapReduce查找共同好友
+- 包org.dan.mr.max_order_price	MapReduce编写自定义的Partitioner和GroupingComparator实现高效求最大值
