@@ -11,3 +11,4 @@ hadoop、mapreduce的一些练习
 - 包org.dan.mr.shared_friends	MapReduce查找共同好友
 - 包org.dan.mr.max_order_price	MapReduce编写自定义的Partitioner和GroupingComparator实现高效求最大值
 - 包org.dan.mr.smallfile	MapReduce自定义FileInputFormat合并小文件
+- 包org.dan.hive.udf	hive自定义udf函数：字符串转换为小写、代码和地区映射和解析json
