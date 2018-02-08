@@ -1,4 +1,8 @@
-package org.dan.mr.accesslog;
+package org.dan.mr.clickstream;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -10,9 +14,10 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.log4j.BasicConfigurator;
 
 
-public class AccessLogDriver {
-	private static String DEFAULT_INPUT_FILE_PATH = "/tomcat-access/input";
-	private static String DEFAULT_OUTPUT_FILE_PATH = "/tomcat-access/output";
+public class ClickStreamDriver {
+	private static DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	private static String DEFAULT_INPUT_FILE_PATH = "/znhw-pageview/" + df.format(new Date());
+	private static String DEFAULT_OUTPUT_FILE_PATH = "/znhw-clickstream/" + df.format(new Date());
 	
 	public static void main(String[] args) throws Exception {
 		BasicConfigurator.configure();
@@ -23,13 +28,16 @@ public class AccessLogDriver {
 		conf.set("fs.defaultFS", "hdfs://mqM:9000");
 		Job job = Job.getInstance(conf);
 		
-		job.setJarByClass(AccessLogDriver.class);
+		job.setJarByClass(ClickStreamDriver.class);
 		
-		job.setMapperClass(AccessLogMapper.class);
+		job.setMapperClass(ClickStreamMapper.class);
+		job.setReducerClass(ClickStreamReducer.class);
 		
+		job.setMapOutputKeyClass(Text.class);
+		job.setMapOutputValueClass(PageView.class);
 		
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(NullWritable.class);
+		job.setOutputKeyClass(NullWritable.class);
+		job.setOutputValueClass(VisitBean.class);
 				
 		String fileInputPath = DEFAULT_INPUT_FILE_PATH;
 		if(args.length > 0)

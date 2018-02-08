@@ -13,8 +13,11 @@ hadoop、mapreduce的一些练习
 - 包org.dan.mr.smallfile	MapReduce自定义FileInputFormat合并小文件
 - 包org.dan.hive.udf	hive自定义udf函数：字符串转换为小写、代码和地区映射和解析json
 - 包org.dan.mr.accesslog 将hdfs中 tomcat accesslog 转换为为贴源层数据保存在hdfs中
+- 包org.dan.mr.pageview 将贴源层数据处理为pageview数据
+- 包org.dan.mr.clickstream 将pageview数据处理为点击流数据
 
 config文件夹：
 
 - tail-tomcat.sh脚本，监视tomcat的access log的输出
 - tail-hdfs.conf flume配置文件，将tail-tomcat.sh脚本输出的内容保存到hdfs中
+- mvdata.sh 将flume采集到hdfs的文件统一移动到一个预处理文件夹

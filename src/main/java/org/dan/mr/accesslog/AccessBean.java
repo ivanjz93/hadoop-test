@@ -1,7 +1,13 @@
 package org.dan.mr.accesslog;
 
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
+import org.apache.hadoop.io.Writable;
+
 //219.141.189.148 - - [07/Feb/2018:12:58:42 +0800] "GET /zhhw/external/v1/trashcan?sn=863703032592581 HTTP/1.1" 200 243
-public class AccessBean {
+public class AccessBean implements Writable{
 	private boolean invalid;
 	private String ip;
 	private String time;
@@ -67,6 +73,28 @@ public class AccessBean {
 	public String toString() {
 		return invalid + "\u0001" + ip + "\u0001" + time + "\u0001" + method + "\u0001"
 				+ url + "\u0001" + code + "\u0001" + bytes;
+	}
+
+	@Override
+	public void readFields(DataInput input) throws IOException {
+		invalid = input.readBoolean();
+		ip = input.readUTF();
+		time = input.readUTF();
+		method = input.readUTF();
+		url = input.readUTF();
+		code = input.readUTF();
+		bytes = input.readUTF();
+	}
+
+	@Override
+	public void write(DataOutput output) throws IOException {
+		output.writeBoolean(invalid);
+		output.writeUTF(ip);
+		output.writeUTF(time);
+		output.writeUTF(method);
+		output.writeUTF(url);
+		output.writeUTF(code);
+		output.writeUTF(bytes);
 	}
 	
 }
