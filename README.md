@@ -21,3 +21,5 @@ config文件夹：
 - tail-tomcat.sh脚本，监视tomcat的access log的输出
 - tail-hdfs.conf flume配置文件，将tail-tomcat.sh脚本输出的内容保存到hdfs中
 - mvdata.sh 将flume采集到hdfs的文件统一移动到一个预处理文件夹
+- create_table.sql 创建贴源层、ageview和点击流hive数据表
+- load_ods_table.sh 导入三个表的数据
