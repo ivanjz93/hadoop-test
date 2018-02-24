@@ -9,7 +9,20 @@
 
   <name>hadoop-test</name>
   <url>http://maven.apache.org</url>
-
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<configuration>
+  				<source>1.8</source>
+  				<target>1.8</target>
+  				<encoding>UTF-8</encoding>
+  			</configuration>
+  		</plugin>
+  	</plugins>
+  </build>
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -30,6 +43,11 @@
         <artifactId>hadoop-common</artifactId>
         <version>2.9.0</version>
     </dependency>
+    <dependency>
+	    <groupId>org.apache.hbase</groupId>
+	    <artifactId>hbase-client</artifactId>
+	    <version>1.4.1</version>
+	</dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

@@ -16,6 +16,9 @@ hadoop、mapreduce的一些练习
 - 包org.dan.mr.pageview 将贴源层数据处理为pageview数据
 - 包org.dan.mr.clickstream 将pageview数据处理为点击流数据
 
+测试类：
+- HBaseTest HBase Java接口测试类
+
 config文件夹：
 
 - tail-tomcat.sh脚本，监视tomcat的access log的输出
