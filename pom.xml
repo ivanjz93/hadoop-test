@@ -48,6 +48,21 @@
 	    <artifactId>hbase-client</artifactId>
 	    <version>1.4.1</version>
 	</dependency>
+	<dependency>
+	    <groupId>org.apache.hbase</groupId>
+	    <artifactId>hbase-server</artifactId>
+	    <version>1.4.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.hbase</groupId>
+	    <artifactId>hbase-hadoop-compat</artifactId>
+	    <version>1.4.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.hbase</groupId>
+	    <artifactId>hbase-hadoop2-compat</artifactId>
+	    <version>1.4.1</version>
+	</dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

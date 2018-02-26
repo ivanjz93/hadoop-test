@@ -15,6 +15,7 @@ hadoop、mapreduce的一些练习
 - 包org.dan.mr.accesslog 将hdfs中 tomcat accesslog 转换为为贴源层数据保存在hdfs中
 - 包org.dan.mr.pageview 将贴源层数据处理为pageview数据
 - 包org.dan.mr.clickstream 将pageview数据处理为点击流数据
+- 类HBaseMR MapReduce操作HBase实现word count
 
 测试类：
 - HBaseTest HBase Java接口测试类
